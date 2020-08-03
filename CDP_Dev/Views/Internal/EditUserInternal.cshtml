@@ -1,0 +1,34 @@
+﻿@model CDP.Core.Internals.UserInternal
+
+@{
+    ViewData["Title"] = "Edit User Internal";
+}
+
+<h3>Edit User Internal</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditUserInternal">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="User" class="control-label"></label>
+                <input asp-for="User" class="form-control" readonly />
+                <span asp-validation-for="User" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Internal" class="control-label"></label>
+                <select asp-for="InternalId" class="form-control" asp-items="@(new SelectList(@ViewBag.InternalList,"Id", "Name"))" />
+                <span asp-validation-for="Internal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-warning" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @*<a asp-action="UserInternal">Back to List</a>*@
+    <a class="btn btn-info" asp-action="UserInternal"><span class="glyphicon glyphicon-arrow-left"></span></a>
+</div>
+
